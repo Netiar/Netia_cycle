@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Netia_cycle</string>
+    <string name="label_template">#%1$08x</string>
 </resources>
