@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private NetiaAdapter adapter;
+    private NetiaAdapter adp;
     private NetiaViewModel vm;
     private final int id = new Random().nextInt();
 
@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         vm = new ViewModelProvider(this).get(NetiaViewModel.class);
-        adapter = new NetiaAdapter(getLayoutInflater(), vm.startTime);
+        adp = new NetiaAdapter(getLayoutInflater(), vm.startTime);
         addEvent("onCreate()");
 
         binding.rec.setLayoutManager(new LinearLayoutManager(this));
         binding.rec.addItemDecoration(
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        binding.rec.setAdapter(adapter);
+        binding.rec.setAdapter(adp);
 
     }
     @Override
@@ -69,6 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void addEvent(String message) {
         vm.addEvent(message, id);
-        adapter.submitList(new ArrayList<>(vm.netia));
+        adp.submitList(new ArrayList<>(vm.netia));
     }
 }
