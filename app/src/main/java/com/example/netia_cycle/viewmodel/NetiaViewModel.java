@@ -21,6 +21,7 @@ public class NetiaViewModel extends ViewModel {
     private final int id = new Random().nextInt();
     private final SavedStateHandle state;
 
+
     public NetiaViewModel(SavedStateHandle state) {
         this.state = state;
         ArrayList<Netia> netia = state.get(STATE_NETIA);
