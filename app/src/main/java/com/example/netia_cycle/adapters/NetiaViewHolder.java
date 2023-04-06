@@ -20,12 +20,9 @@ public class NetiaViewHolder extends RecyclerView.ViewHolder {
 
 
     public void bindTo(Netia netia) {
-        long elapsedSeconds = (netia.timestamp - startTime)/1000;
-
-        binding.timestamp.setText(DateUtils.formatElapsedTime(elapsedSeconds));
-        binding.message.setText(netia.message);
-        binding.activityHash.setText(Integer.toHexString(netia.activityHash));
-        binding.viewHash.setText(Integer.toHexString(netia.viewHash));
+        binding.setElapsedSeconds((netia.timestamp - startTime)/1000);
+        binding.setNetia(netia);
+        binding.executePendingBindings();
     }
 
 
